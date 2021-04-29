@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="sales_team_form_view_in_crm_sale_group_inherit" model="ir.ui.view">
+        <field name="name">crm.team.form.sale.group.inherit</field>
+        <field name="model">crm.team</field>
+        <field name="inherit_id" ref="sales_team.crm_team_view_form"/>
+        <field name="priority">12</field>
+        <field name="arch" type="xml">
+            <field name="company_id" position="after">
+                <field name="sales_groups_id" kanban_view_ref="1001" widget="many2many_tags" readonly="1" options="{'no_create': True}"/>
+            </field>
+        </field>
+    </record>
+</odoo>

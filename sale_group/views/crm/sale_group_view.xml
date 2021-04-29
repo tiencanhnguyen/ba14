@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_sale_group_tree" model="ir.ui.view">
+        <field name="name">sale.group.tree</field>
+        <field name="model">sale.group</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="sales_teams" widget="many2many_tags" />
+                <field name="user_ids" widget="many2many_tags" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_sale_group_form" model="ir.ui.view">
+        <field name="name">sale.group.form</field>
+        <field name="model">sale.group</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="sales_teams" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <field name="user_ids" widget="many2many_tags" options="{'not_delete': True}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

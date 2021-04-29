@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_bm_sale_group" model="ir.actions.act_window">
+        <field name="name">Sales Groups</field>
+        <field name="res_model">sale.group</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree',
+                        'view_id': ref('view_sale_group_tree')}),
+                (0, 0, {'view_mode': 'form',
+                        'view_id': ref('view_sale_group_form')})]"/>
+    </record>
+
+
+    <record id="menu_bm_app_sale_group" model="ir.ui.menu">
+        <field name="name">Sales Groups</field>
+        <field name="sequence">2</field>
+        <field name="action"
+            eval="'ir.actions.act_window,%d' % action_bm_sale_group" />
+        <field name="parent_id" eval="ref('sale.menu_sale_config')" />
+    </record>
+
+    <record id="menu_bm_app_crm_sale_group" model="ir.ui.menu">
+        <field name="name">Sales Groups</field>
+        <field name="sequence">6</field>
+        <field name="action"
+            eval="'ir.actions.act_window,%d' % action_bm_sale_group" />
+        <field name="parent_id" eval="ref('crm.crm_menu_config')" />
+    </record>
+
+</odoo>
